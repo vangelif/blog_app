@@ -7,7 +7,8 @@ gem 'rails', '~> 7.1.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
-
+# # install rspec
+# gem 'rspec-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
@@ -59,6 +60,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+# add Rspec gem in the development test group
+group :development, :test do
+  gem 'rspec-rails'
 end
 
 group :test do
