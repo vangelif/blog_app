@@ -11,6 +11,7 @@ gem 'sprockets-rails'
 # gem 'rspec-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
+# gem 'rspec-rails'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
@@ -49,6 +50,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  # add Rspec gem in the development test group
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -60,11 +63,6 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-end
-
-# add Rspec gem in the development test group
-group :development, :test do
-  gem 'rspec-rails'
 end
 
 group :test do
