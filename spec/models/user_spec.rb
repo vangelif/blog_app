@@ -24,5 +24,9 @@ RSpec.describe User, type: :model do
       subject.posts_counter = -5
       expect(subject).to_not be_valid
     end
+
+    it 'returns no more than three posts' do
+      expect(subject.three_most_recents_posts.length).to be <= 3
+    end
   end
 end
