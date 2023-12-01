@@ -1,27 +1,28 @@
-# Name must not be blank.
-# PostsCounter must be an integer greater than or equal to zero.
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'validations' do
+  # subject is an instance of 'User'
+  subject { User.new(id: 1, name: 'Jeremy') }
+  # before block ensures that this user is saved to the db
+  # before each test within the example group
+  before { subject.save }
+  describe 'User validations' do
+    # Name must not be blank.
     it 'name must not be blank' do
       user = User.new(name: nil)
-      # user.valid?
       expect(user).to_not be_valid
     end
-
-    it 'PostCounter must be an integer and greater or equal to zero' do
-      # user = User.new(posts_counter: 'not an integer')
-      # user.valid?
-      # expect(user.errors[:posts_counter]).to include('must be an integer!')
-
-      # user.posts_counter = -1
-      # user.valid?
-      # expect(user.errors[:posts_counter]).to include('must be greater than or equal to 0')
-
-      # user.posts_counter = 5
-      # user.valid?
-      # expect(user.errors[:posts_counter]).to be_empty
+    # PostsCounter must be an integer.
+    it 'posts_counter should be integer' do
+      subject.posts_counter = 'chickens'
+      expect(subject).to_not be_valid
+    end
+    # PostsCounter must be greater than or equal to zero.
+    it 'posts_counter should be greater than or equal to zero' do
+      subject.posts_counter = 0
+      expect(subject).to be_valid
+      subject.posts_counter = -5
+      expect(subject).to_not be_valid
     end
   end
 end
