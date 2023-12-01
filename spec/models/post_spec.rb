@@ -3,10 +3,8 @@ require 'rails_helper'
 describe Post, type: :model do
   let(:user) do
     User.create(name: 'Jonathan',
-                photo: 'https://unsplash.com/photos/man-in-white-crew-neck-t-shirt-kissing-woman-in-white-dress-Z39a7lqZusU', bio: 'I love my job')
+                photo: 'https://unsplash.com/photos/ZusU', bio: 'I love +you')
   end
-
-
   subject { Post.create(author: user, title: 'This is a post title!', text: 'My first post is about rails framework!') }
   before { subject.save }
   describe 'Post validations' do
@@ -54,8 +52,6 @@ describe Post, type: :model do
     it 'check posts_counter to equal 1' do
       expect(user.posts_counter).to eq(1)
     end
-
-
     it 'returns an empty array when there are no comments' do
       result = subject.five_most_recent_comments
       expect(result).to be_empty
