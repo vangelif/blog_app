@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+    # get 'users/:user_id/posts' => 'posts#index'
+  # get 'users/:user_id/posts/:id' => 'posts#show'
+  # get 'users' => 'users#index'
+  # get 'users/:id' => 'users#show'
+  # more readable and clean
+  resources :users, only: [:index, :show] do
+    resources :posts, only: [:index, :show]
+  end
+  
+    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
