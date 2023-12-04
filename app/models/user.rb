@@ -16,7 +16,7 @@
 
 class User < ApplicationRecord
   # the user has many posts and the the foreign key in the posts is author_id
-  # when the user is deleted the dependent: :destroy option ensures that all posts 
+  # when the user is deleted the dependent: :destroy option ensures that all posts
   # are also destroyed
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
   has_many :likes, dependent: :destroy

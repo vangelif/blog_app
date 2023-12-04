@@ -1,7 +1,7 @@
 # Table "public.comments"
 # Column   |              Type              | Collation | Nullable |               Default
 # ------------+--------------------------------+-----------+----------+--------------------------------------
-# id         | bigint                         |           | not null | nextval('comments_id_seq'::regclass) 
+# id         | bigint                         |           | not null | nextval('comments_id_seq'::regclass)
 # text       | text                           |           |          |
 # user_id    | bigint                         |           | not null |
 # post_id    | bigint                         |           | not null |

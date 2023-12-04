@@ -23,8 +23,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  # these are callbacks that will be executed 
-  # by calling the private methods 
+  # these are callbacks that will be executed
+  # by calling the private methods
   # when a new post is created or destroyed
   after_create :increment_users_counter
   after_destroy :decrement_users_counter
@@ -47,7 +47,7 @@ class Post < ApplicationRecord
   end
 
   def decrement_users_counter
-        # decrement! is an ActiveRecord method
+    # decrement! is an ActiveRecord method
     # for decreasing the value of an attribute by 1
     # :posts_counter is an attribute on User's table
     author.decrement!(:posts_counter)
