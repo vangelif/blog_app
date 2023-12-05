@@ -52,6 +52,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   # add Rspec gem in the development test group
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
