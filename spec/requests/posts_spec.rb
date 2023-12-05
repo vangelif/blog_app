@@ -14,6 +14,10 @@ RSpec.describe 'Posts', type: :request do
       get '/users/2/posts'
       expect(response.body).to include('Find me in')
     end
+    it 'returns template' do
+      get '/users/2/posts'
+      expect(response).to render_template('posts/index')
+    end
   end
 
   describe 'GET /users/:id/posts/:id' do
@@ -28,6 +32,10 @@ RSpec.describe 'Posts', type: :request do
     it 'returns body within the page' do
       get '/users/2/posts/1'
       expect(response.body).to include('Posts#show')
+    end
+    it 'returns template' do
+      get '/users/2/posts/1'
+      expect(response).to render_template('posts/show')
     end
   end
 end
