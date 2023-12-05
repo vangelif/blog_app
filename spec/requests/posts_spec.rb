@@ -1,41 +1,41 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
-  describe 'GET /users' do
+RSpec.describe 'Posts', type: :request do
+  describe 'GET /users/:id/posts' do
     it 'returns http success' do
-      get '/users'
+      get '/users/2/posts'
       expect(response).to have_http_status(:success)
     end
     it 'returns success response 200' do
-      get '/users'
+      get '/users/2/posts'
       expect(response.status).to eq(200)
     end
     it 'returns body within the page' do
-      get '/users'
+      get '/users/2/posts'
       expect(response.body).to include('Find me in')
     end
     it 'returns template' do
-      get '/users'
-      expect(response).to render_template('users/index')
+      get '/users/2/posts'
+      expect(response).to render_template('posts/index')
     end
   end
 
-  describe 'GET /users/:id' do
+  describe 'GET /users/:id/posts/:id' do
     it 'returns http success' do
-      get '/users/:id'
+      get '/users/2/posts/1'
       expect(response).to have_http_status(:success)
     end
     it 'returns success response 200' do
-      get '/users/:id'
+      get '/users/2/posts/1'
       expect(response.status).to eq(200)
     end
     it 'returns body within the page' do
-      get '/users/:id'
-      expect(response.body).to include('Users#show')
+      get '/users/2/posts/1'
+      expect(response.body).to include('Posts#show')
     end
     it 'returns template' do
-      get '/users/:id'
-      expect(response).to render_template('users/show')
+      get '/users/2/posts/1'
+      expect(response).to render_template('posts/show')
     end
   end
 end
