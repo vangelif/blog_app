@@ -27,7 +27,7 @@ RSpec.describe 'Users', type: :request do
     end
     it 'returns body within the page' do
       get '/users/:id'
-      expect(response.body).to include('Find me in')
+      expect(response.body).to include('Users#show')
     end
   end
 end
