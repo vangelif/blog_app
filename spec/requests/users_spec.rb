@@ -14,6 +14,10 @@ RSpec.describe 'Users', type: :request do
       get '/users'
       expect(response.body).to include('Find me in')
     end
+    it 'returns template' do
+      get '/users'
+      expect(response).to render_template('users/index')
+    end
   end
 
   describe 'GET /users/:id' do
@@ -28,6 +32,10 @@ RSpec.describe 'Users', type: :request do
     it 'returns body within the page' do
       get '/users/:id'
       expect(response.body).to include('Users#show')
+    end
+    it 'returns template' do
+      get '/users/:id'
+      expect(response).to render_template('users/show')
     end
   end
 end
