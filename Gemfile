@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 ruby '3.2.2'
 
 gem 'bootsnap', require: false
-gem 'importmap-rails'
 gem 'bootstrap', '~> 5.3.2'
+gem 'importmap-rails'
 gem 'sassc-rails', '~> 2.1'
 
 
