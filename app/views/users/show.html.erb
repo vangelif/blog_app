@@ -1,20 +1,15 @@
-<div class="card m-3 mx-auto" style="width: 32rem;">
+<div class="m-3 mx-auto" style="width: 32rem;">
     <%= render 'shared/user', user: @user %>
-  <div class="card-body">
-
-    <p class="card-text">Bio: <br><%= @user.bio%></p>
+  <div class="card mb-3">
+    <p class="card-title">Bio:</p> <br> <br>
+    <p class="card-body"><%= @user.bio%></p>
   </div>
   <% @user.three_most_recents_posts.each do |post| %>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-decoration-none">
-            <div class="mb-3"><%= render 'shared/post', post: post %></div>
+        <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="card text-decoration-none mb-3">
+            <div><%= render 'shared/post', post: post %></div>
         </a>
-    </li>
-  </ul>
     <% end %>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+    <div class="text-center">
+        <a href="/users/<%= @user.id %>/posts/" class="btn btn-primary mx-auto d-block" style="width: 150px;">Show Posts</a>
+    </div>
 </div>

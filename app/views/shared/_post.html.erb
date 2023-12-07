@@ -1,12 +1,9 @@
-<div class="row">
-  <div class="col-sm-6 mb-3 mb-sm-0 mx-auto">
-    <div class="card mx-auto p-3">
-      <%# <div class="card-body"> %>
-        <h5 class="card-title">Title: <%= post.title %></h5>
-        <p class="card-text"><%= post.text %></p>
-        <p class="m-0 text-sm">Likes: <%= post.likes_counter %></p>
-        <p class="m-0 text-sm">Comments: <%= post.comments_counter %></p>
-      <%# </div> %>
-    </div>
-  </div>
+<%# HEADER FOR POSTS, TITLE, TEXT, COUNTERS %>
+<div class="m-2">
+        <h3 class="card-title">Title#<%= post.id %>: <%= post.title %></h5>
+        <article class="card-text"><%= post.text %></article>
+      <div class="self-align-end text-end">
+        <p class="m-0 small text-muted">Likes: <%= post.likes_counter %></p>
+        <p class="m-0 small text-muted">Comments: <%= post.comments_counter %></p>
+      </div>
 </div>
