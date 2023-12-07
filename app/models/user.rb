@@ -25,7 +25,7 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 
-  def has_posts?
+  def posts?
     three_most_recents_posts.present?
   end
 

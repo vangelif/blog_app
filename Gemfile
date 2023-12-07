@@ -5,15 +5,12 @@ ruby '3.2.2'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.3.2'
 gem 'importmap-rails'
-gem 'sassc-rails', '~> 2.1'
-
-
-
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'sassc-rails', '~> 2.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'

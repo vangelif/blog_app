@@ -6,7 +6,7 @@
   </div>
 
 
-<% if @user.has_posts? %>
+<% if @user.posts? %>
     <% @user.three_most_recents_posts.each do |post| %>
             <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="card text-decoration-none mb-3">
                 <div><%= render 'shared/post', post: post %></div>
