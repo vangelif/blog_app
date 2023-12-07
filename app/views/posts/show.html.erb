@@ -1,2 +1,14 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container m-2 mx-auto">
+    <div class="card mb-3">
+        <div class="row m-2">
+            <h2 class="card-title col-6">Post#<%= @post.id%> by <%= @post.author.name %></h2> 
+            <span class="card-title col-6 self-align-end text-end small text-muted">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
+        </div>
+        <br> <br>
+        <p class="card-body"><%= @post.text %></p>
+    </div>
+
+    <div class="card">
+        <%= render 'shared/comment', comments: @post.comments unless @post.comments.empty? %>    
+    </div>
+</div>
