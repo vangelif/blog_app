@@ -1,0 +1,14 @@
+<%# HEADER WITH PHOTO NAME AND NUMBER OF POSTS %>
+<div class="card mb-3" style="max-width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-2">
+      <img src="<%= user.photo %>" class="img-fluid rounded-start" alt="X">
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h2 class="card-title"><%= user.name %></h2>
+        <p class="card-text small text-muted self-align-end text-end">Number of Posts: <%= user.posts_counter %></p>
+      </div>
+    </div>
+  </div>
+</div>
