@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="text-bg-warning">
   <head>
     <title>BlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,6 +12,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/nav' %>
+    <section class="text-bg-warning p-5">
+      <%= yield %>
+    </section>
+
   </body>
+
 </html>
