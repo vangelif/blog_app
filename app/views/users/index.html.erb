@@ -1,6 +1,6 @@
 <div class="container mt-5">
         <% @users.each do |user| %>
-            <a href="<%= user.id %>" class="text-decoration-none">
+            <a href="/users/<%= user.id %>" class="text-decoration-none">
                 <%= render 'shared/user', user: user %>
             </a>
         <% end %>

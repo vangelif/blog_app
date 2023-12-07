@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'users/:user_id/posts' => 'posts#index'
   # get 'users/:user_id/posts/:id' => 'posts#show'
-  # get 'users' => 'users#index'
+  root 'users#index'
   # get 'users/:id' => 'users#show'
   # more readable and clean
   resources :users, only: [:index, :show] do
