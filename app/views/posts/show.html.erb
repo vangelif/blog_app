@@ -8,7 +8,9 @@
         <p class="card-body"><%= @post.text %></p>
     </div>
 
+<% if @post.comments.present? %>
     <div class="card">
-        <%= render 'shared/comment', comments: @post.comments unless @post.comments.empty? %>    
+        <%= render 'shared/comment', comments: @post.comments %>    
     </div>
+    <% end %>
 </div>
