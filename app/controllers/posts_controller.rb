@@ -29,6 +29,20 @@ class PostsController < ApplicationController
     end
   end
 
+  # def toggle_like
+  #   @post = Post.find(params[:id])
+  #   @like = Like.find_by(post: @post, user: current_user)
+
+  #   if @like
+  #     @like.destroy
+  #   else
+  #     Like.create(post: @post, user: current_user)
+  #   end
+
+  #   redirect_to @post
+
+  # end
+
   private
   
     def post_params
