@@ -14,12 +14,23 @@
     </div>
     <% end %>
 
-  <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post), method: :post) do |f| %>
-    <div class="my-3">
-      <%= f.text_area :text, placeholder: 'Add a comment...', class: 'form-control' %>
-    </div>
-    <%= f.submit 'Comment', class: 'btn btn-dark text-warning' %>
-  <% end %>
 
 
+        <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post), method: :post) do |f| %>
+            <div class="my-3">
+                <%= f.text_area :text, placeholder: 'Add your comment...', class: 'form-control' %>
+            </div>
+    <div class="d-flex justify-content-center">
+        <div class="mx-2">
+            <%= f.submit 'Comment', class: 'btn btn-dark text-warning' %>
+        <% end %>
+        </div>
+        <div class="mx-2">
+        
+
+              <%= render 'shared/like_toggle_button', post: @post, current_user: @current_user %>
+        </div>
+        </div>
+        
+    
 </div>
