@@ -1,5 +1,6 @@
 <div class="m-3 mx-auto" style="width: 32rem;">
     <%= render 'shared/user', user: @user %>
+
   <div class="card mb-3">
     <p class="card-title">Bio:</p> <br> <br>
     <p class="card-body"><%= @user.bio%></p>
@@ -7,16 +8,20 @@
 
 
 <% if @user.posts? %>
-    <% @user.three_most_recents_posts.each do |post| %>
-            <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="card text-decoration-none mb-3">
-                <div><%= render 'shared/post', post: post %></div>
-            </a>
-        <% end %>
-    <div class="text-center">
-        <a href="/users/<%= @user.id %>/posts/" class="btn btn-primary mx-auto d-block" style="width: 150px;">Show Posts</a>
-        <% else %>
-                <a href="#" class="btn btn-primary mx-auto d-block disabled" style="width: 150px;">Show Posts</a>
+  <% @user.three_most_recents_posts.each do |post| %>
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="card text-decoration-none mb-3">
+      <div><%= render 'shared/post', post: post %></div>
+    </a>
+  <% end %>
+  <div class="d-flex justify-content-center">
+    <a href="/users/<%= @user.id %>/posts/" class="btn btn-dark text-warning mx-2" style="width: 150px;">Show Posts</a>
+    <a href="/users/<%= @user.id %>/posts/new" class="btn btn-dark text-warning mx-2" style="width: 150px;">Create Post</a>
+  </div>
+<% else %>
+<div class="d-flex justify-content-center">
+  <a href="#" class="btn btn-dark text-warning mx-auto mx-2 d-block disabled" style="width: 150px;">Show Posts</a>
+  <a href="/users/<%= @user.id %>/posts/new" class="btn btn-dark text-warning mx-auto mx-2 d-block" style="width: 150px;">Create Post</a>
+  </div>
 <% end %>
-
     </div>
 </div>
