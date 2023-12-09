@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="text-bg-warning">
   <head>
-    <title>BlogApp</title>
+    <title>Vangelis Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,13 @@
   <body>
     <%= render 'shared/nav' %>
     <section class="text-bg-warning p-5">
-      <%= yield %>
+         <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div> 
+    </div>
     </section>
 
   </body>

@@ -7,5 +7,37 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @current_user = current_user
+  end
+
+  def new
+    @post = Post.new
+    @current_user = current_user
+  end
+
+  def create
+    @post = Post.new(post_params)
+    @post.author = current_user
+    @post.comments_counter = 0
+    @post.likes_counter = 0
+
+    if @post.valid?
+      if @post.save
+        flash[:success] = 'Your post is successfully posted! Bravo 🎊'
+        redirect_to user_posts_path(current_user)
+      else
+        flash.now[:error] = 'Error Occurred while saving the post. Apologies, try again!'
+        render :new
+      end
+    else
+      flash.now[:error] = 'Error Occurred due to validation issues. Apologies, try again!'
+      render :new
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
