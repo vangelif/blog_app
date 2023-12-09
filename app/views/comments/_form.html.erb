@@ -1,0 +1,11 @@
+<%= form_with model: [@post, @comment], url: user_post_comments_path(@post.author, @post) do |f| %>
+  <div class="form-group mb-3">
+    <%= f.label :text %>
+    <%= f.text_area :text, size: "50x3", class: 'form-control' %>
+    <% if @comment.errors.has_key?(:text) %>
+      <div class="text-danger" style="color: red;"><%= @comment.errors.full_messages_for(:text).join(', ') %></div>
+    <% end %>
+  </div>
+
+  <%= f.submit 'Add Comment', class: 'btn btn-dark text-warning' %>
+<% end %>

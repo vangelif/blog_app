@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # more readable and clean
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :create] do
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:create, :new, :destroy]
       resources :likes, only: [:create]
     end
   end
