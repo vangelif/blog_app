@@ -122,6 +122,12 @@ You can deploy this project using your own deployment solution
 - Twitter: [@vangfot](https://twitter.com/vangfot)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/vangfot)
 
+👤 **Jubaer Maruf**
+
+- GitHub: [jubaer_Maruf](https://github.com/jubaer919)
+- Twitter: [@jubaer_maruf](https://twitter.com/jubaer_maruf)
+- LinkedIn: [Jubaer Maruf](https://www.linkedin.com/in/jubaer-maruf/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
