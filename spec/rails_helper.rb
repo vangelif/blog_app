@@ -29,5 +29,6 @@ RSpec.configure do |config|
   config.before(:each, type: :system, js: true) do
     driven_by :selenium, using: :mozilla, screen_size: [1400, 1400], options: { headless: false }
     # You can customize the Firefox configuration here if needed
+    Capybara.default_max_wait_time = 10
   end
 end
