@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
 begin
@@ -17,12 +17,11 @@ RSpec.configure do |config|
     Rails.root.join('spec/fixtures')
   ]
 
-
   config.use_transactional_fixtures = true
 
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  
+
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
@@ -31,7 +30,8 @@ RSpec.configure do |config|
     driven_by :selenium, using: :mozilla, screen_size: [1400, 1400], options: { headless: false }
     # You can customize the Firefox configuration here if needed
     Capybara.register_driver :selenium do |app|
-      Capybara::Selenium::Driver.new(app, browser: :mozilla, options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]))
+      Capybara::Selenium::Driver.new(app, browser: :mozilla,
+                                          options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]))
     end
   end
 end
