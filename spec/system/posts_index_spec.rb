@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts#alls', type: :system do
+RSpec.describe 'Posts#index', type: :system do
   before(:all) do
     # need to make capybara setup to run system tests
     driven_by(:rack_test)
@@ -49,45 +49,45 @@ RSpec.describe 'Posts#alls', type: :system do
 
   #   I can see a post's title.
   it 'displays the post title' do
-    visit user_path(@lilly)
+    visit user_posts_path(@lilly)
     expect(page).to have_content('World!')
   end
 
   #   I can see some of the post's body.
   it 'displays the post body' do
-    visit user_path(@lilly)
+    visit user_posts_path(@lilly)
     expect(page).to have_content('Lets talk')
   end
 
   # #   I can see the first comments on a post.
   it 'displays the first comment on a post' do
-    visit user_path(@tom)
+    visit user_posts_path(@tom)
     expect(page).to have_content('first post')
   end
 
   # #   I can see how many comments a post has.
   it 'displays the number of comments a post has' do
-    visit user_path(@tom)
+    visit user_posts_path(@tom)
     expect(page).to have_content('1')
   end
 
   #   I can see how many likes a post has.
   it 'displays the number of likes a post has' do
-    visit user_path(@tom)
+    visit user_posts_path(@tom)
     expect(page).to have_content('0')
   end
 
   #   I can see a section for pagination if there are more posts than fit on the view.
   it 'displays a section for pagination if there are more posts than fit on the view' do
-    visit user_path(@tom)
+    visit user_posts_path(@tom)
     expect(page).to have_content('1')
-    visit user_path(@lilly)
+    visit user_posts_path(@lilly)
     expect(page).to have_content('1')
   end
 
   #   When I click on a post, it redirects me to that post's show page.
   it 'redirects to the post show page' do
-    visit user_path(@tom)
+    visit user_posts_path(@tom)
     click_on 'first post'
     expect(page).to have_content('first post')
   end
