@@ -22,7 +22,6 @@ RSpec.describe 'Posts#alls', type: :system do
     @posts = Post.all
   end
 
-
   #   I can see the post's title.
   it 'displays the post title' do
     visit user_path(@lilly)
