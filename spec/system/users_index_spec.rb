@@ -14,8 +14,20 @@ RSpec.describe 'Users#index', type: :system do
   end
 
   # I can see the username of all other users.
+  it 'displays the names of all users' do
+    visit '/users'
+    @users.each do |user|
+        expect(page).to have_content(user.name)
+    end
+  end
 
   # I can see the profile picture for each user.
+  it 'displays the profile picture for each user' do 
+    visit '/users'
+    @users.each do |user|
+        expect(page).to have_css("img[src*='#{user.photo}']")
+    end
+  end
 
   # I can see the number of posts each user has written.
   it 'displays the number of posts each user has written' do
