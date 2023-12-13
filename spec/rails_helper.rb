@@ -29,9 +29,5 @@ RSpec.configure do |config|
   config.before(:each, type: :system, js: true) do
     driven_by :selenium, using: :mozilla, screen_size: [1400, 1400], options: { headless: false }
     # You can customize the Firefox configuration here if needed
-    Capybara.register_driver :selenium do |app|
-      Capybara::Selenium::Driver.new(app, browser: :mozilla,
-                                          options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]))
-    end
   end
 end

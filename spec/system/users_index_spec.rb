@@ -17,15 +17,15 @@ RSpec.describe 'Users#index', type: :system do
   it 'displays the names of all users' do
     visit '/users'
     @users.each do |user|
-        expect(page).to have_content(user.name)
+      expect(page).to have_content(user.name)
     end
   end
 
   # I can see the profile picture for each user.
-  it 'displays the profile picture for each user' do 
+  it 'displays the profile picture for each user' do
     visit '/users'
     @users.each do |user|
-        expect(page).to have_css("img[src*='#{user.photo}']")
+      expect(page).to have_css("img[src*='#{user.photo}']")
     end
   end
 
