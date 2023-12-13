@@ -17,7 +17,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
+  
   # the user has many posts and the the foreign key in the posts is author_id
   # when the user is deleted the dependent: :destroy option ensures that all posts
   # are also destroyed
