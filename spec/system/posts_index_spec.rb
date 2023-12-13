@@ -10,7 +10,7 @@ RSpec.describe 'Posts#index', type: :system do
     User.delete_all
 
     def url_for_image
-      'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fHBvcnRyYWl0fGVufDB8fDB8fHww'
+      'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=700'
     end
 
     @tom = User.create(name: 'Tom', photo: url_for_image, bio: 'Teacher from Mexico.',
@@ -30,20 +30,19 @@ RSpec.describe 'Posts#index', type: :system do
 
   #   I can see the user's profile picture.
   it 'displays the user profile picture' do
-    visit '/users'
-    click_on 'Lilly'
-    expect(page).to have_css("img[src*='https://images.unsplash.com/photo-1552058544-f2b08422138a?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fHBvcnRyYWl0fGVufDB8fDB8fHww']")
+    visit user_posts_path(@tom)
+    expect(page).to have_css("img[src*='#{@tom.photo}']", wait: 10)
   end
   #   I can see the user's username.
   it 'displays the user username' do
-    visit '/users'
-    click_on 'Lilly'
+    visit user_posts_path(@lilly)
+    click_on 'Hi World!'
     expect(page).to have_content('Lilly')
   end
   #   I can see the number of posts the user has written.
   it 'displays the number of posts the user has written' do
-    visit '/users'
-    click_on 'Lilly'
+    visit user_posts_path(@lilly)
+    click_on 'Hi World!'
     expect(page).to have_content('1')
   end
 
