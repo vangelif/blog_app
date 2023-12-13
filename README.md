@@ -122,6 +122,18 @@ You can deploy this project using your own deployment solution
 - Twitter: [@vangfot](https://twitter.com/vangfot)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/vangfot)
 
+👤 **Jubaer Maruf**
+
+- GitHub: [jubaer_Maruf](https://github.com/jubaer919)
+- Twitter: [@jubaer_maruf](https://twitter.com/jubaer_maruf)
+- LinkedIn: [Jubaer Maruf](https://www.linkedin.com/in/jubaer-maruf/)
+
+**Iwu John Chinonso**
+
+- GitHub: [@githubhandle](https://github.com/maths29)
+- Twitter: [@twitterhandle](https://twitter.com/maths29)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/iwu-john-b92b01148/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
