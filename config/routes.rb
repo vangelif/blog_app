@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'users#index'
   # more readable and clean
   resources :users, only: [:index, :show] do
