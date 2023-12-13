@@ -12,16 +12,21 @@ RSpec.describe 'Users#index', type: :system do
     @users = User.all
 end 
 
-it 'displays the names of all users' do
+# I can see the username of all other users.
+
+# I can see the profile picture for each user.
+
+# I can see the number of posts each user has written.
+it 'displays the number of posts each user has written' do
     visit '/users'
     @users.each do |user|
-        expect(page).to have_content(user.name)
-    end
+        expect(page).to have_content(user.posts_counter)
+    end 
 end
-
-it 'displays the names of specific users' do
+# When I click on a user, I am redirected to that user's show page.
+it 'redirects to the user show page when a user is clicked' do
     visit '/users'
-    expect(page).to have_content('Lilly')
-    expect(page).to have_content('Tom')
-    end
+    click_on 'Lilly'
+    expect(page).to have_current_path(user_path(@lilly))
+end
 end

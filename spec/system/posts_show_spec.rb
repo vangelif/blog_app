@@ -50,10 +50,10 @@ it 'displays the post body' do
 end
 
 #   I can see the username of each commentor.
-it 'displays the username of each commentor' do
-    visit user_path(@tom)
-    expect(page).to have_content('Tom')
-end
+  it 'displays the username of each commentor' do
+      visit user_path(@tom)
+      expect(page).to have_content('Tom')
+  end
 
 #   I can see the comment each commentor left.
 it 'displays the comment each commentor left' do
