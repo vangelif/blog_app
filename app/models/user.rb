@@ -14,6 +14,11 @@
 #     TABLE "posts" CONSTRAINT "fk_rails_5b5ddfd518" FOREIGN KEY (author_id) REFERENCES users(id)
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
+
   # the user has many posts and the the foreign key in the posts is author_id
   # when the user is deleted the dependent: :destroy option ensures that all posts
   # are also destroyed

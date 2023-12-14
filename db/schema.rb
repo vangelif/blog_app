@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# List of relations
-# Schema |         Name         | Type  |  Owner
-# --------+----------------------+-------+----------
-# public | ar_internal_metadata | table | postgres
-# public | comments             | table | postgres
-# public | likes                | table | postgres
-# public | posts                | table | postgres
-# public | schema_migrations    | table | postgres
-# public | users                | table | postgres
-# (6 rows)
-
-ActiveRecord::Schema[7.1].define(version: 2023_12_01_164231) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_13_135509) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +51,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_164231) do
     t.integer "posts_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "posts"

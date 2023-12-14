@@ -14,10 +14,24 @@
   <body>
     <%= render 'shared/nav' %>
     <section class="text-bg-warning p-5">
-         <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="container">
       <div class="row">
+        <% if flash[:alert].present? || flash[:notice].present? %>
+  <div class="alert-container">
+    <!-- Display alerts -->
+    <% if flash[:alert].present? %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+        <% if flash[:notice].present? %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+     
         <%= yield %>
       </div> 
     </div>
