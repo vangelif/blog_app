@@ -16,8 +16,22 @@
     <section class="text-bg-warning p-5">
     <div class="container">
       <div class="row">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+        <% if flash[:alert].present? || flash[:notice].present? %>
+  <div class="alert-container">
+    <!-- Display alerts -->
+    <% if flash[:alert].present? %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+        <% if flash[:notice].present? %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+     
         <%= yield %>
       </div> 
     </div>
