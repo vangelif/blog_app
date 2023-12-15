@@ -14,6 +14,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'sassc-rails', '~> 2.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem 'cancancan'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 group :development, :test do
