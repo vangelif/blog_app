@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'users#index'
   # more readable and clean
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create] do
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:create, :new, :destroy]
       resources :likes, only: [:create]
     end
