@@ -3,15 +3,20 @@
         <div class="row m-2">
             <h2 class="card-title col-6">Post#<%= @post.id%> by <%= @post.author.name %></h2> 
             <span class="card-title col-6 self-align-end text-end small text-muted">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
+                          <% if can? :destroy, @post %>
+            <%= button_to 'Delete Post', user_post_path(@post.author, @post), method: :delete, class: 'btn btn-warning' %>    
+              <% end %> 
         </div>
         <br> <br>
         <p class="card-body"><%= @post.text %></p>
-    </div>
+
+          </div>
 
 <% if @post.comments.present? %>
     <div class="card">
-        <%= render 'shared/comment', comments: @post.comments %>    
+        <%= render 'shared/comment', comments: @post.comments %>      
     </div>
+
     <% end %>
 
     <div class="d-flex justify-content-center mt-3">

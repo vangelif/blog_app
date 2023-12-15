@@ -12,6 +12,7 @@
         <% if post.five_most_recent_comments.present? %>
         <div class="card mb-3">
             <%= render 'shared/comment', comments: post.five_most_recent_comments %>
+                   
         </div>
         <% end %>
     <% end %>

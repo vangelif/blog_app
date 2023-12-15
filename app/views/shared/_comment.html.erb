@@ -1,5 +1,6 @@
     <div class="class-body m-2">
         <% comments.each do |comment| %>
             <p><%= comment.user.name %>: <%= comment.text %></p>
+                  <%= button_to 'Remove Comment', user_post_comment_path(user_id: comment.user_id, post_id: comment.post_id, id: comment.id), method: :delete, class: 'btn btn-warning' if can? :destroy, comment %>
         <% end %>
     </div>    

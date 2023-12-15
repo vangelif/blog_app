@@ -14,6 +14,7 @@
 #     TABLE "posts" CONSTRAINT "fk_rails_5b5ddfd518" FOREIGN KEY (author_id) REFERENCES users(id)
 
 class User < ApplicationRecord
+  # before_create :set_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,6 +33,12 @@ class User < ApplicationRecord
 
   def posts?
     three_most_recents_posts.present?
+  end
+
+  enum role: { user: 'user', admin: 'admin' }
+
+  def admin?
+    role == 'admin'
   end
 
   validates :name, presence: true
