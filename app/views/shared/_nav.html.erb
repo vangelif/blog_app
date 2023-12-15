@@ -9,10 +9,11 @@
         <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-warning" type="submit">Search</button>
       </form>
+      
       <% if user_signed_in? %>
+<span>Welcome back, <strong style="" class="logged-email"><%= current_user.email %></strong></span>
 <a><%= link_to 'Sign Out', switch_user_path, class: 'btn-outline-warning no underline mx-2', style: 'text-decoration: none;' %></a>
 <% end %>
-
     </div>
   </div>
 </nav>
