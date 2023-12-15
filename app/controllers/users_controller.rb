@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   def switch_user
