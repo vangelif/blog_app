@@ -4,6 +4,7 @@ ruby '3.2.2'
 
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.3.2'
+gem 'cancancan'
 gem 'devise'
 gem 'importmap-rails'
 gem 'jbuilder'
@@ -14,7 +15,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'sassc-rails', '~> 2.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'cancancan'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 group :development, :test do

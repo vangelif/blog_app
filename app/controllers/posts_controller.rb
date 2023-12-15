@@ -11,19 +11,19 @@ class PostsController < ApplicationController
     @author = User.find(params[:user_id])
   end
 
-    # localhost:3000/users/1/posts/1
+  # localhost:3000/users/1/posts/1
   def show
     @post = Post.find(params[:id])
     @current_user = current_user
   end
 
-    # localhost:3000/users/1/posts
+  # localhost:3000/users/1/posts
   def new
     @post = Post.new
     @current_user = current_user
   end
 
-    # localhost:3000/users/1/posts/new when you click create button
+  # localhost:3000/users/1/posts/new when you click create button
   def create
     @post = Post.new(post_params)
     @post.author = current_user
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     end
   end
 
-      # localhost:3000/users/1/posts/21 when you click delete post button
+  # localhost:3000/users/1/posts/21 when you click delete post button
   def destroy
     @post = Post.find(params[:id])
     authorize! :destroy, @post

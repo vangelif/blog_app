@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-      # localhost:3000/users/1/posts/1/comments/new when you click create comment
+  # localhost:3000/users/1/posts/1/comments/new when you click create comment
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     end
   end
 
-      # localhost:3000/users/1/posts/1/ when you click remove comment
+  # localhost:3000/users/1/posts/1/ when you click remove comment
   def destroy
     @comment = Comment.find(params[:id])
     authorize! :destroy, @comment
