@@ -17,6 +17,7 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'active_model_serializers'
 group :development, :test do
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
