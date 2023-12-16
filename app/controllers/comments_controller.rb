@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_with_http_digest
+  before_action :authenticate_user!
   before_action :set_post, only: %i[new create]
 
   # localhost:3000/users/1/posts/1/comments/new
@@ -13,7 +14,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to user_post_path(@post.author, @post), notice: '🎊 Bravo, you have created your comment!'
+      redirect_to user_post_path(@post.author, @post), notice: '📌 Bravo, you have created your comment!🎊'
     else
       flash[:alert] = 'Apologies try again!'
       redirect_to user_post_path(@post.author, @post)
@@ -26,7 +27,7 @@ class CommentsController < ApplicationController
     authorize! :destroy, @comment
     @comment.destroy
     # redirects us to localhost:3000/users/1/posts/
-    redirect_to user_post_path(@comment.post.author, @comment.post), notice: 'Comment was successfully deleted.'
+    redirect_to user_post_path(@comment.post.author, @comment.post), notice: '✂️🗃️ Comment was successfully deleted.'
   end
 
   private

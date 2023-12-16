@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!
   # before_action :authenticate_user!
   # before_action :authenticate_user!, only: %i[new create]
 
@@ -15,10 +16,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @current_user = current_user
-
+    # to rendser json in the browser
     respond_to do |format|
       format.html
-      format.json { render json: @post }
+      format.json { render json: @post, root: true }
     end
   end
 
@@ -37,14 +38,14 @@ class PostsController < ApplicationController
 
     if @post.valid?
       if @post.save
-        flash[:success] = 'Your post is successfully posted! Bravo 🎊'
+        flash[:success] = '📲 Your post is successfully posted! Bravo 🎊'
         redirect_to user_posts_path(current_user)
       else
-        flash.now[:error] = 'Error Occurred while saving the post. Apologies, try again!'
+        flash.now[:error] = '⚠️ Error Occurred while saving the post. Apologies, try again!'
         render :new
       end
     else
-      flash.now[:error] = 'Error Occurred due to validation issues. Apologies, try again!'
+      flash.now[:error] = '⚠️ Error Occurred due to validation issues. Apologies, try again!'
       render :new
     end
   end
@@ -56,7 +57,7 @@ class PostsController < ApplicationController
     @post.comments.destroy_all
     @post.likes.destroy_all
     @post.destroy
-    redirect_to user_posts_path(@post.author_id), notice: 'Post was successfully deleted.'
+    redirect_to user_posts_path(@post.author_id), notice: '✂️🗃️ Post was successfully deleted.'
   end
 
   private

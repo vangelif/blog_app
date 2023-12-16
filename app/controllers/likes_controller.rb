@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :authenticate_with_http_digest
+  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
