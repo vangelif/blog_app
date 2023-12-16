@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # no matter which route we log in, we will be redirected
   # to the sign in page or sign up page first
-  before_action :authenticate_user!
+  # before_action :authenticate_user! -> this asks for log in
   before_action :update_allowed_parameters, if: :devise_controller?
 
   protected

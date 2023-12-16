@@ -16,8 +16,11 @@
 #  "fk_rails_2fd19c0db7" FOREIGN KEY (post_id) REFERENCES posts(id)
 
 class Comment < ApplicationRecord
-  belongs_to :post
   belongs_to :user
+  belongs_to :post
+
+  validates :user, presence: true
+  validates :text, presence: true
 
   after_create :increment_comments_counter
   after_destroy :decrement_comments_counter

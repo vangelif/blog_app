@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
     @users = User.all
   end
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: @user }
+      format.json { render json: @user, root: true }
     end
   end
 
