@@ -17,8 +17,11 @@ gem 'sassc-rails', '~> 2.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
+gem 'rswag-api'
+gem 'rswag-ui'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 group :development, :test do
+  gem 'rswag-specs', '~> 2.0'
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
   gem 'rails-controller-testing'
