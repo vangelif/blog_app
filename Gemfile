@@ -12,20 +12,20 @@ gem 'jbuilder'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.2'
+gem 'rswag-api'
+gem 'rswag-ui'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'sassc-rails', '~> 2.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'rswag-api'
-gem 'rswag-ui'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 group :development, :test do
-  gem 'rswag-specs', '~> 2.0'
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rswag-specs', '~> 2.0'
   gem 'webdrivers'
 end
 
