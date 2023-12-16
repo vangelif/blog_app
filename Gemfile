@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+gem 'active_model_serializers'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.3.2'
 gem 'cancancan'
@@ -17,7 +18,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
-gem 'active_model_serializers'
 group :development, :test do
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
